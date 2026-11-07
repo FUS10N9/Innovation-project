@@ -1,0 +1,4 @@
+-- Categories are inserted by 20261106120000_schema.sql.
+-- Demo tasks and users are not seeded. Create two real accounts to test the marketplace.
+-- After you sign up, you can grant yourself admin access with:
+--   update public.users set role = 'admin' where email = 'you@example.com';
