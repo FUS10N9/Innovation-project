@@ -39,7 +39,7 @@ export function assertSafeContent(text) {
     return 'Remove phone numbers and email addresses. You can message each other in the app after you connect.'
   }
   if (findProhibitedTerm(text)) {
-    return 'This request includes a service Nook cannot safely support.'
+    return 'This request includes a service Nabor cannot safely support.'
   }
   return null
 }

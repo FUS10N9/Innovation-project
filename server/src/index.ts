@@ -59,5 +59,5 @@ app.use('/api', api)
 app.use(errorHandler)
 
 app.listen(env.port, () => {
-  console.log(`Nook API listening on ${env.port}`)
+  console.log(`Nabor API listening on ${env.port}`)
 })

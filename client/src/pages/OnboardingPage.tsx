@@ -64,12 +64,12 @@ export function OnboardingPage() {
 
   return (
     <div className="mx-auto min-h-screen max-w-2xl px-4 py-8">
-      <p className="font-display text-3xl text-pine-800">Nook</p>
+      <p className="font-display text-3xl text-pine-800">Nabor</p>
       <h1 className="mt-6 font-display text-4xl">Set up your profile</h1>
       <p className="mt-2 text-sm leading-6 text-mute">Your date of birth keeps age-restricted tasks out of your feed. Your exact home location stays private.</p>
       {age !== null && age < 16 ? (
         <div className="mt-6 rounded-3xl bg-white p-6">
-          <h2 className="font-display text-3xl">Nook is for people aged 16 and over</h2>
+          <h2 className="font-display text-3xl">Nabor is for people aged 16 and over</h2>
           <p className="mt-2 text-sm leading-6 text-mute">This account cannot post or accept tasks. Identity documents are not checked yet; the date of birth is what the app uses.</p>
           <Button className="mt-5" variant="secondary" onClick={signOut}>Log out</Button>
         </div>
@@ -94,7 +94,7 @@ export function AgeGate() {
   const { signOut } = useAuth()
   return (
     <div className="mx-auto flex min-h-screen max-w-lg flex-col justify-center px-6">
-      <p className="font-display text-3xl text-pine-800">Nook</p>
+      <p className="font-display text-3xl text-pine-800">Nabor</p>
       <h1 className="mt-4 font-display text-4xl">You need to be at least 16</h1>
       <p className="mt-3 text-sm leading-6 text-mute">This account cannot post tasks, apply, or message neighbours. The date of birth on the profile is under 16.</p>
       <Button className="mt-6 w-fit" variant="secondary" onClick={signOut}>Log out</Button>

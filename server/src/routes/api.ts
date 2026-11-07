@@ -50,7 +50,7 @@ api.get('/categories', asRoute(async (req, res) => {
       body: '{}',
     })
     const body = await response.json().catch(() => null)
-    if (!response.ok) throw new HttpError(503, 'Apply the SQL migrations in supabase/migrations before using Nook.')
+    if (!response.ok) throw new HttpError(503, 'Apply the SQL migrations in supabase/migrations before using Nabor.')
     res.json(body)
     return
   }
@@ -203,7 +203,7 @@ api.post('/tasks/:id/apply', writeLimiter, asRoute(async (req, res) => {
     p_message: body.message,
     p_proposed_price: body.proposed_price ?? null,
   })
-  await maybeEmail(result.requester_id, `New application for ${result.title}`, `Someone applied to "${result.title}" on Nook.`)
+  await maybeEmail(result.requester_id, `New application for ${result.title}`, `Someone applied to "${result.title}" on Nabor.`)
   res.status(201).json(result)
 }))
 
@@ -215,7 +215,7 @@ api.post('/applications/:id/withdraw', writeLimiter, asRoute(async (req, res) =>
 api.post('/applications/:id/accept', writeLimiter, asRoute(async (req, res) => {
   const auth = await requireUser(req.header('authorization'))
   const result = await userRpc<{ helper_id: string; title: string }>(auth.token, 'accept_application', { p_application_id: req.params.id })
-  await maybeEmail(result.helper_id, `You were selected for ${result.title}`, `Open Nook to message about "${result.title}".`)
+  await maybeEmail(result.helper_id, `You were selected for ${result.title}`, `Open Nabor to message about "${result.title}".`)
   res.json(result)
 }))
 
@@ -251,7 +251,7 @@ api.post('/tasks/:id/complete', writeLimiter, asRoute(async (req, res) => {
     p_task_id: req.params.id,
     p_final_amount: body.final_amount,
   })
-  await maybeEmail(result.requester_id, `Confirm ${result.title}`, `The helper marked "${result.title}" complete. Confirm it in Nook if the work is done.`)
+  await maybeEmail(result.requester_id, `Confirm ${result.title}`, `The helper marked "${result.title}" complete. Confirm it in Nabor if the work is done.`)
   res.json(result)
 }))
 
@@ -305,7 +305,7 @@ api.post('/reviews', writeLimiter, asRoute(async (req, res) => {
     p_rating: body.rating,
     p_comment: body.comment ?? null,
   })
-  await maybeEmail(result.reviewee_id, `New review for ${result.title}`, `You received a review on Nook.`)
+  await maybeEmail(result.reviewee_id, `New review for ${result.title}`, `You received a review on Nabor.`)
   res.status(201).json(result)
 }))
 

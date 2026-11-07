@@ -26,7 +26,7 @@ export const env = {
   publishableKey: required('SUPABASE_PUBLISHABLE_KEY'),
   secretKey: required('SUPABASE_SECRET_KEY'),
   origins,
-  emailFrom: process.env.EMAIL_FROM || 'Nook <onboarding@resend.dev>',
+  emailFrom: process.env.EMAIL_FROM || 'Nabor <onboarding@resend.dev>',
   resendKey: process.env.RESEND_API_KEY?.trim() || '',
   razorpay: {
     keyId: process.env.RAZORPAY_KEY_ID?.trim() || '',

@@ -29,7 +29,7 @@ export function LandingPage() {
   return (
     <div className="min-h-screen bg-paper">
       <header className="mx-auto flex max-w-6xl items-center justify-between px-5 py-5">
-        <span className="font-display text-3xl text-pine-800">Nook</span>
+        <span className="font-display text-3xl text-pine-800">Nabor</span>
         <div className="flex gap-2">
           <Link to="/login" className="rounded-full px-4 py-2 text-sm font-medium">Log in</Link>
           <Link to="/signup" className="rounded-full bg-pine-600 px-4 py-2 text-sm font-medium text-white">Create account</Link>
@@ -69,7 +69,7 @@ export function LandingPage() {
         ) : (
           <p className="mt-4 max-w-xl text-sm leading-6 text-mute">Categories appear after the database migration is applied. Everyday errands, learning, technology, home help, pets, and small creative jobs are the starting set.</p>
         )}
-        <p className="mt-8 max-w-2xl text-sm leading-6 text-mute">Cash and UPI are arranged between the two people and recorded as self-reported. An in-app payment is marked paid only after the server verifies the payment provider. Nook does not hold funds in escrow.</p>
+        <p className="mt-8 max-w-2xl text-sm leading-6 text-mute">Cash and UPI are arranged between the two people and recorded as self-reported. An in-app payment is marked paid only after the server verifies the payment provider. Nabor does not hold funds in escrow.</p>
       </section>
     </div>
   )
@@ -104,7 +104,7 @@ export function SignupPage() {
   const [error, setError] = useState('')
   const form = useForm<{ full_name: string; email: string; password: string }>({ resolver: zodResolver(credentials.extend({ full_name: z.string().trim().min(2, 'Enter your name') })) })
   return (
-    <AuthFrame title="Create your Nook" subtitle="You can ask for help and offer it. You need to be 16 or over.">
+    <AuthFrame title="Create your Nabor account" subtitle="You can ask for help and offer it. You need to be 16 or over.">
       <form className="space-y-4" onSubmit={form.handleSubmit(async (values) => {
         setError('')
         const { data, error: signUpError } = await supabase!.auth.signUp({
@@ -161,7 +161,7 @@ export function ResetPage() {
           return
         }
         const { error } = await supabase!.auth.updateUser({ password })
-        setMessage(error ? error.message : 'Password updated. You can continue into Nook.')
+        setMessage(error ? error.message : 'Password updated. You can continue into Nabor.')
       }}>
         <Field label="New password"><Input type="password" value={password} onChange={(event) => setPassword(event.target.value)} /></Field>
         {message ? <p className="text-sm text-mute">{message}</p> : null}
@@ -175,12 +175,12 @@ function AuthFrame({ title, subtitle, children }: { title: string; subtitle: str
   return (
     <div className="grid min-h-screen md:grid-cols-2">
       <div className="hidden bg-pine-800 p-10 text-pine-50 md:flex md:flex-col md:justify-between">
-        <Link to="/" className="font-display text-4xl">Nook</Link>
+        <Link to="/" className="font-display text-4xl">Nabor</Link>
         <p className="max-w-sm font-display text-4xl leading-tight">Need a hand? There's someone nearby.</p>
       </div>
       <div className="flex items-center justify-center px-5 py-12">
         <div className="w-full max-w-md">
-          <Link to="/" className="font-display text-3xl text-pine-800 md:hidden">Nook</Link>
+          <Link to="/" className="font-display text-3xl text-pine-800 md:hidden">Nabor</Link>
           <h1 className="mt-6 font-display text-4xl">{title}</h1>
           <p className="mt-2 text-sm leading-6 text-mute">{subtitle}</p>
           <div className="mt-6">{children}</div>

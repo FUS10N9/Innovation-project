@@ -232,7 +232,7 @@ async function startRazorpay(taskId: string, keyId: string | null, profile: { fu
     amount: Math.round(order.amount * 100),
     currency: order.currency,
     order_id: order.orderId,
-    name: 'Nook',
+    name: 'Nabor',
     prefill: { name: profile.full_name, email: profile.email, contact: profile.phone || undefined },
     handler: async (response: { razorpay_order_id: string; razorpay_payment_id: string; razorpay_signature: string }) => {
       await api('/payments/verify/razorpay', {

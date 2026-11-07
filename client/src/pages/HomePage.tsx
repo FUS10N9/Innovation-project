@@ -60,7 +60,7 @@ export function HomePage() {
         ) : null}
       </div>
       {!origin ? (
-        <EmptyState title="Where should Nook look?" body="Use your neighbourhood from onboarding, or set a place for this session." action={<Button onClick={() => navigate('/explore')}>Choose a place</Button>} />
+        <EmptyState title="Where should Nabor look?" body="Use your neighbourhood from onboarding, or set a place for this session." action={<Button onClick={() => navigate('/explore')}>Choose a place</Button>} />
       ) : (
         <>
           <div className="flex flex-col gap-3 md:flex-row">

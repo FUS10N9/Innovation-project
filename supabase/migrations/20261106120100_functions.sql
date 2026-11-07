@@ -98,7 +98,7 @@ begin
   end if;
   foreach term in array terms loop
     if position(term in value) > 0 then
-      raise exception 'This request includes a service Nook cannot safely support.';
+      raise exception 'This request includes a service Nabor cannot safely support.';
     end if;
   end loop;
 end;
@@ -127,7 +127,7 @@ begin
     raise exception 'Finish setting up your profile first';
   end if;
   if profile.date_of_birth is null or extract(year from age(current_date, profile.date_of_birth)) < 16 then
-    raise exception 'You need to be at least 16 to use Nook';
+    raise exception 'You need to be at least 16 to use Nabor';
   end if;
   if not exists (
     select 1 from auth.users where id = auth.uid() and email_confirmed_at is not null
@@ -275,7 +275,7 @@ begin
   end if;
   if p_avatar_url is not null and btrim(p_avatar_url) <> ''
      and p_avatar_url !~ ('^https://.+/storage/v1/object/public/avatars/' || v_uid::text || '/[A-Za-z0-9._-]+$') then
-    raise exception 'Upload a profile photo through Nook';
+    raise exception 'Upload a profile photo through Nabor';
   end if;
   if p_bio is not null and char_length(p_bio) > 280 then
     raise exception 'Keep your introduction under 280 characters';

@@ -1,8 +1,8 @@
-# Nook
+# Nabor
 
 Need a hand? There's someone nearby.
 
-Nook is a hyperlocal marketplace where neighbours post everyday tasks, helpers apply, and the two people finish the work with a recorded payment. The same account can request help and offer it.
+Nabor is a hyperlocal marketplace where neighbours post everyday tasks, helpers apply, and the two people finish the work with a recorded payment. The same account can request help and offer it.
 
 ## Architecture
 
@@ -97,7 +97,7 @@ An account under 16 can sign up but cannot post, apply, or enter the marketplace
 
 Direct payments never become "verified by payment provider". Gateway rows start as `pending` with no verification flag. `/api/payments/verify/razorpay` checks the Razorpay signature on the server. Webhooks at `/api/payments/webhook/razorpay` and `/api/payments/webhook/cashfree` reject unsigned bodies. Refund events mark the row `refunded`.
 
-Nook does not hold a balance and does not claim escrow.
+Nabor does not hold a balance and does not claim escrow.
 
 ## Deployment
 

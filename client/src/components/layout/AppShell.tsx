@@ -42,7 +42,7 @@ export function AppShell() {
   return (
     <div className="min-h-screen md:grid md:grid-cols-[240px_1fr]">
       <aside className="sticky top-0 hidden h-screen flex-col border-r border-line bg-white px-4 py-5 md:flex">
-        <Link to="/home" className="px-2 font-display text-3xl text-pine-800">Nook</Link>
+        <Link to="/home" className="px-2 font-display text-3xl text-pine-800">Nabor</Link>
         <p className="px-2 pb-6 text-sm text-mute">Need a hand? There's someone nearby.</p>
         <nav className="space-y-1">
           {items.map((item) => (
@@ -61,7 +61,7 @@ export function AppShell() {
       </aside>
       <div className="pb-24 md:pb-0">
         <header className="sticky top-0 z-20 flex items-center justify-between border-b border-line/80 bg-paper/90 px-4 py-3 backdrop-blur md:px-8">
-          <Link to="/home" className="font-display text-2xl text-pine-800 md:hidden">Nook</Link>
+          <Link to="/home" className="font-display text-2xl text-pine-800 md:hidden">Nabor</Link>
           <p className="hidden text-sm text-mute md:block">{profile?.neighbourhood || 'Choose a neighbourhood'}</p>
           <div className="flex items-center gap-2">
             {profile?.role === 'admin' ? <Link to="/admin" className="rounded-full px-3 py-1.5 text-sm font-medium text-pine-800">Admin</Link> : null}

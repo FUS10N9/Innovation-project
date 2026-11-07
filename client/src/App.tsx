@@ -22,7 +22,7 @@ export default function App() {
   if (!configured) {
     return (
       <main className="mx-auto max-w-lg px-6 py-20">
-        <h1 className="font-display text-4xl">Nook needs its environment file</h1>
+        <h1 className="font-display text-4xl">Nabor needs its environment file</h1>
         <p className="mt-3 text-sm leading-6 text-mute">Add VITE_SUPABASE_URL and VITE_SUPABASE_PUBLISHABLE_KEY to the root .env, then restart the web app. Keep the secret key on the server only.</p>
       </main>
     )
@@ -73,7 +73,7 @@ function RequireReady() {
   if (profileError) {
     return (
       <main className="mx-auto max-w-lg px-6 py-20">
-        <h1 className="font-display text-4xl">Nook cannot load your profile</h1>
+        <h1 className="font-display text-4xl">Nabor cannot load your profile</h1>
         <p className="mt-3 text-sm leading-6 text-mute">{profileError.message}</p>
         <div className="mt-5 flex gap-3">
           <Button onClick={() => window.location.reload()}>Try again</Button>
@@ -91,5 +91,5 @@ function RequireReady() {
 }
 
 function Loading() {
-  return <div className="grid min-h-screen place-items-center font-display text-3xl text-pine-800">Nook</div>
+  return <div className="grid min-h-screen place-items-center font-display text-3xl text-pine-800">Nabor</div>
 }

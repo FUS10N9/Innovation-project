@@ -28,7 +28,7 @@ export async function userRpc<T>(token: string, fn: string, args: Record<string,
   if (!response.ok) {
     const message = body?.message || body?.error || 'Request failed'
     if (body?.code === 'PGRST202' || /does not exist|schema cache/i.test(message)) {
-      throw new HttpError(503, 'Apply the SQL migrations in supabase/migrations before using Nook.')
+      throw new HttpError(503, 'Apply the SQL migrations in supabase/migrations before using Nabor.')
     }
     console.error(`rpc ${fn} failed`, response.status)
     throw new HttpError(response.status === 401 ? 401 : 400, safeDbMessage(message))
@@ -82,7 +82,7 @@ export async function requireAdmin(auth: AuthContext) {
     .eq('id', auth.user.id)
     .maybeSingle()
   if (error?.code === '42P01' || /does not exist/i.test(error?.message || '')) {
-    throw new HttpError(503, 'Apply the SQL migrations in supabase/migrations before using Nook.')
+    throw new HttpError(503, 'Apply the SQL migrations in supabase/migrations before using Nabor.')
   }
   if (error || !data || data.role !== 'admin' || data.is_suspended) {
     throw new HttpError(403, 'You do not have access to this area')

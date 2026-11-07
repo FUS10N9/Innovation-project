@@ -492,7 +492,7 @@ begin
     raise exception 'You cannot message this person';
   end if;
   if p_attachment is not null and p_attachment !~ ('^' || v_uid::text || '/[A-Za-z0-9._-]+$') then
-    raise exception 'Upload the photo through Nook before sending it';
+    raise exception 'Upload the photo through Nabor before sending it';
   end if;
   if char_length(v_content) = 0 and p_attachment is null then
     raise exception 'Write a message or attach a photo';
