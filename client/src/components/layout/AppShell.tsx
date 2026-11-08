@@ -23,7 +23,7 @@ export function AppShell() {
     queryKey: ['notifications'],
     queryFn: () => api<Array<{ is_read: boolean }>>('/notifications'),
   })
-  const unread = (notifications.data || []).filter((item) => !item.is_read).length
+  const unread = (Array.isArray(notifications.data)? notifications.data : []).filter((item) => !item.is_read).length
 
   useEffect(() => {
     const client = supabase
