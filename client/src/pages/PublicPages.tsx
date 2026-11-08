@@ -25,7 +25,7 @@ export function LandingPage() {
     retry: false,
   })
   if (!loading && session) return <Navigate to="/home" replace />
-  const groups = (categories.data || []).filter((category) => !category.parent_id)
+  const groups = (Array.isArray(categories.data) ? categories.data : []).filter((category) => !category.parent_id)
   return (
     <div className="min-h-screen bg-paper">
       <header className="mx-auto flex max-w-6xl items-center justify-between px-5 py-5">
